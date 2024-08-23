@@ -20,4 +20,4 @@ class UserForm(forms.ModelForm):
         fields = ['username']  # Только поле username
 
 
-UserFormSet = modelformset_factory(Users, form=UserForm, extra=1, can_delete=True)
+UserFormSet = modelformset_factory(Users, form=UserForm, extra=1, can_delete=False)

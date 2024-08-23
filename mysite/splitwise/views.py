@@ -14,13 +14,16 @@ def index(request):
             form.add_error(None, 'Ошибка')
     else:
         form = CreateEventForm()
-
-    return render(request, 'splitwise/index.html', context={'form': form})
+    events = Events.objects.all()
+    context = {
+        'form': form,
+        'events': events
+    }
+    return render(request, 'splitwise/index.html', context=context)
 
 
 def create_users(request, event_id):
     event = get_object_or_404(Events, id=event_id)  # Получаем событие по его ID
-
     if request.method == 'POST':
         formset = UserFormSet(request.POST)
         if formset.is_valid():

@@ -1,6 +1,8 @@
 {% extends 'splitwise/base.html' %}
+{% load static %}
+{% block link %}<link rel="stylesheet" href='{% static "css/create_users.css" %}'>{% endblock link %}
 {% block content %}
-<h1>Create Users</h1>
+<h1><a href="{% url 'index' %}" style="text-decoration:  none">Create Users</a></h1>
 <form method="post">
     {% csrf_token %}
     {{ formset.management_form }}

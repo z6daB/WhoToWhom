@@ -1,3 +1,4 @@
+/* Общие стили */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -7,7 +8,32 @@ h1 {
     color: #333;
 }
 
-form {
+/* Стили для списка событий */
+.events-container {
+    margin-bottom: 30px;
+}
+
+.event-item {
+    margin-bottom: 10px;
+}
+
+.event-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.event-link:hover {
+    background-color: #f0f0f0;
+}
+
+/* Стили для формы */
+.form-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -16,46 +42,25 @@ form {
     background-color: #f9f9f9;
 }
 
-.form-row {
+.form-group {
     margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
-    position: relative;
+    box-sizing: border-box;
 }
 
-.form-row button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #d9534f;
-    border: none;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.form-row button:hover {
-    background-color: #c9302c;
-}
-
-#add-form-row {
-    background-color: #5bc0de;
-    border: none;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#add-form-row:hover {
-    background-color: #31b0d5;
-}
-
+/* Стили для кнопок */
 button[type="submit"] {
     background-color: #5cb85c;
     border: none;
@@ -64,6 +69,8 @@ button[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {

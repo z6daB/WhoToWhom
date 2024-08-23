@@ -1,13 +1,26 @@
 {% extends 'splitwise/base.html' %}
+{% load static %}
+{% block link %}<link rel="stylesheet" href='{% static "css/styles.css" %}'>{% endblock link %}
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.non_field_errors }}
-    <div>
-        <label for="{{ form.title.id_for_label }}">Создать событие:</label>
-        {{ form.title }}
-        {{ form.title.error }}
-    </div>
-    <button type="submit" class="submit-btn">Создать</button>
-</form>
+<div class="events-container">
+    {% for event in events %}
+        <div class="event-item">
+            <a href="{% url 'create_user' event.id %}" class="event-link">{{ event.title }}</a>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Создать событие:</label>
+            {{ form.title }}
+            {{ form.title.error }}
+        </div>
+        <button type="submit" class="submit-btn">Создать</button>
+    </form>
+</div>
+
 {% endblock content %}
