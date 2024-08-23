@@ -1,0 +1,59 @@
+{% extends 'splitwise/base.html' %}
+{% block content %}
+<h1>Create Users</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <div id="formset-container">
+        {% for form in formset %}
+        <div class="form-row">
+            {{ form.as_p }}
+            {% if form.instance.pk %}
+            <!-- Скрытое поле для идентификатора формы -->
+            <input type="hidden" name="form-{{ forloop.counter0 }}-id" id="id_form-{{ forloop.counter0 }}-id"
+                   value="{{ form.instance.id }}">
+            <!-- Кнопка удаления -->
+            <button type="button" class="delete-form-row" data-form-id="{{ forloop.counter0 }}">Delete</button>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <button type="button" id="add-form-row">Add User</button>
+    <button type="submit">Save All Users</button>
+</form>
+
+<script type="text/javascript">
+        $(document).ready(function() {
+            // Добавление новой формы
+            $('#add-form-row').click(function() {
+                var formIdx = $('#id_form-TOTAL_FORMS').val();
+                $('#formset-container').append($('#empty-form').html().replace(/__prefix__/g, formIdx));
+                $('#id_form-TOTAL_FORMS').val(parseInt(formIdx) + 1);
+            });
+
+            // Удаление формы
+            $(document).on('click', '.delete-form-row', function() {
+                var formRow = $(this).closest('.form-row');
+                var formId = $(this).data('form-id');
+                // Удалить скрытое поле DELETE если оно уже есть
+                formRow.find('input[name="form-' + formId + '-DELETE"]').remove();
+                // Добавить скрытое поле DELETE
+                formRow.append('<input type="hidden" name="form-' + formId + '-DELETE" value="on">');
+                // Удалить визуально
+                formRow.fadeOut(300, function() {
+                    formRow.remove();
+                });
+            });
+        });
+
+</script>
+
+<!-- Шаблон пустой формы -->
+<div id="empty-form" style="display: none;">
+    <div class="form-row">
+        {{ formset.empty_form.as_p }}
+        <input type="hidden" name="form-__prefix__-id" id="id_form-__prefix__-id">
+        <button type="button" class="delete-form-row" data-form-id="__prefix__">Delete</button>
+    </div>
+</div>
+{% endblock content %}

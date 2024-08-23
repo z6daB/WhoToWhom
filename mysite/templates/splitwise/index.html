@@ -1,4 +1,13 @@
 {% extends 'splitwise/base.html' %}
 {% block content %}
-    <h1>This is index.html</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div>
+        <label for="{{ form.title.id_for_label }}">Создать событие:</label>
+        {{ form.title }}
+        {{ form.title.error }}
+    </div>
+    <button type="submit" class="submit-btn">Создать</button>
+</form>
 {% endblock content %}
