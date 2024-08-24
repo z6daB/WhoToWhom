@@ -4,22 +4,27 @@ from .models import Users, Events
 
 
 def index(request):
-    if request.method == 'POST':
-        form = CreateEventForm(request.POST)
-        if form.is_valid():
-            event = form.save()  # Сохраняем событие и получаем его объект
-            return redirect('create_user',
-                            event_id=event.id)  # Перенаправляем на create_users с идентификатором события
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = CreateEventForm(request.POST)
+            if form.is_valid():
+                event = form.save(commit=False)  # Don't save to the database yet
+                event.user = request.user  # Set the user to the currently logged-in user
+                event.save()  # Now save the event to the database
+                return redirect('create_user', event_id=event.id)  # Redirect to create_user with the event ID
+            else:
+                form.add_error(None, 'Ошибка')
         else:
-            form.add_error(None, 'Ошибка')
+            form = CreateEventForm()
+
+        events = Events.objects.filter(user_id=request.user.id)
+        context = {
+            'form': form,
+            'events': events
+        }
+        return render(request, 'splitwise/index.html', context=context)
     else:
-        form = CreateEventForm()
-    events = Events.objects.all()
-    context = {
-        'form': form,
-        'events': events
-    }
-    return render(request, 'splitwise/index.html', context=context)
+        return redirect('accounts/register/')
 
 
 def create_users(request, event_id):
