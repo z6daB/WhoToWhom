@@ -41,3 +41,11 @@ def create_users(request, event_id):
         formset = UserFormSet(queryset=Users.objects.none())  # Пустой набор форм
 
     return render(request, 'splitwise/create_users.html', {'formset': formset})
+
+
+def purchases(request):
+    return render(request, 'splitwise/purchases/html')
+
+
+def create_purchase(request, event_id):
+    return render(request, 'splitwise/add_purchase.html')

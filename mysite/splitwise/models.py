@@ -16,6 +16,9 @@ class Users(models.Model):
 
 
 class Expenses(models.Model):
+    event = models.ForeignKey(Events, on_delete=models.CASCADE, related_name='expenses')
     name = models.CharField(max_length=255, unique=False)
-    price = models.IntegerField()
-    event = models.ForeignKey(Events, on_delete=models.PROTECT)
+    creator = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='created_expenses', default=1)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    members = models.ManyToManyField(User, related_name='participated_expenses')
+
