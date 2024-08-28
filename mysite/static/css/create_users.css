@@ -2,49 +2,50 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-color: #fff3e0; /* Теплый светло-оранжевый фон */
 }
 
 h1 {
-    color: #333;
+    color: #d84315; /* Теплый терракотовый оттенок */
     text-align: center;
     margin-bottom: 20px;
 }
 
 /* Стили для формы */
 form {
-    max-width: 800px;
+    max-width: 600px; /* Оставляем уже */
     margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    padding: 25px; /* Увеличен padding */
+    border: 1px solid #ffab91; /* Теплый светлый оранжевый */
+    border-radius: 12px; /* Более скругленные углы */
+    background-color: #ffe0b2; /* Теплый персиковый фон */
 }
 
 #formset-container {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .form-row {
     margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
+    padding: 15px; /* Увеличен padding */
+    border: 1px solid #ffcc80; /* Теплый светло-оранжевый */
+    border-radius: 10px; /* Более скругленные углы */
+    background-color: #ffecb3; /* Теплый светлый фон */
     position: relative;
     transition: background-color 0.3s ease;
 }
 
 .form-row:hover {
-    background-color: #f0f0f0;
+    background-color: #ffe082; /* Более насыщенный теплый цвет при наведении */
 }
 
 .form-row input[type="text"],
 .form-row input[type="email"],
 .form-row select {
-    width: calc(100% - 22px);
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: calc(100% - 30px); /* Оставляем уже */
+    padding: 10px; /* Увеличен padding */
+    border: 1px solid #ffb74d; /* Теплый оранжевый */
+    border-radius: 8px; /* Более скругленные углы */
     box-sizing: border-box;
     margin-bottom: 10px;
 }
@@ -53,27 +54,27 @@ form {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #d9534f;
+    background-color: #e57373; /* Теплый красноватый цвет */
     border: none;
     color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 7px 12px; /* Увеличен размер кнопки */
+    border-radius: 8px; /* Более скругленные углы */
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s ease;
 }
 
 .delete-form-row:hover {
-    background-color: #c9302c;
+    background-color: #d32f2f; /* Насыщенный теплый красный при наведении */
 }
 
 #add-form-row {
     display: inline-block;
-    background-color: #5bc0de;
+    background-color: #ff8a65; /* Теплый коралловый цвет */
     border: none;
     color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 12px 20px; /* Увеличен размер кнопки */
+    border-radius: 8px; /* Более скругленные углы */
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
@@ -81,21 +82,21 @@ form {
 }
 
 #add-form-row:hover {
-    background-color: #31b0d5;
+    background-color: #f4511e; /* Яркий теплый оранжевый при наведении */
 }
 
 button[type="submit"] {
     display: inline-block;
-    background-color: #5cb85c;
+    background-color: #ff7043; /* Теплый оранжево-красный цвет */
     border: none;
     color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 12px 20px; /* Увеличен размер кнопки */
+    border-radius: 8px; /* Более скругленные углы */
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
-    background-color: #4cae4c;
+    background-color: #e64a19; /* Темно-оранжевый при наведении */
 }

@@ -2,10 +2,11 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-color: #fff3e0; /* Соответствует общему теплому фону */
 }
 
 h1 {
-    color: #333;
+    color: #d84315; /* Терракотовый оттенок, как в заголовке ранее */
 }
 
 /* Стили для списка событий */
@@ -18,18 +19,18 @@ h1 {
 }
 
 .event-link {
-    color: #007bff;
+    color: #ff7043; /* Теплый оранжево-красный цвет для ссылок */
     text-decoration: none;
     font-size: 18px;
     padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #ffcc80; /* Теплый светло-оранжевый цвет для границы */
+    border-radius: 8px; /* Более скругленные углы */
     display: inline-block;
     transition: background-color 0.3s ease;
 }
 
 .event-link:hover {
-    background-color: #f0f0f0;
+    background-color: #ffe082; /* Более насыщенный теплый цвет при наведении */
 }
 
 /* Стили для формы */
@@ -37,9 +38,9 @@ h1 {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    border: 1px solid #ffab91; /* Теплый светлый оранжевый */
+    border-radius: 12px; /* Более скругленные углы */
+    background-color: #ffe0b2; /* Теплый персиковый фон */
 }
 
 .form-group {
@@ -50,23 +51,25 @@ h1 {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    color: #d84315; /* Терракотовый оттенок для текста меток */
 }
 
 .form-group input {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #ffb74d; /* Теплый оранжевый для границы */
+    border-radius: 8px; /* Более скругленные углы */
     box-sizing: border-box;
+    background-color: #fff3e0; /* Светлый теплый фон */
 }
 
 /* Стили для кнопок */
 button[type="submit"] {
-    background-color: #5cb85c;
+    background-color: #ff7043; /* Теплый оранжево-красный цвет */
     border: none;
     color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 12px 20px; /* Увеличен размер кнопки */
+    border-radius: 8px; /* Более скругленные углы */
     cursor: pointer;
     font-size: 16px;
     width: 100%;
@@ -74,5 +77,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #4cae4c;
+    background-color: #e64a19; /* Темно-оранжевый при наведении */
 }

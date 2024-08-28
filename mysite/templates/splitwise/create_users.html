@@ -2,7 +2,7 @@
 {% load static %}
 {% block link %}<link rel="stylesheet" href='{% static "css/create_users.css" %}'>{% endblock link %}
 {% block content %}
-<h1><a href="{% url 'index' %}" style="text-decoration:  none">Добавить участников</a></h1>
+<h1><a href="{% url 'index' %}" style="text-decoration: none; color: rgb(255, 125, 25);">Добавить участников</a></h1>
 <form method="post">
     {% csrf_token %}
     {{ formset.management_form }}
@@ -14,14 +14,12 @@
             <!-- Скрытое поле для идентификатора формы -->
             <input type="hidden" name="form-{{ forloop.counter0 }}-id" id="id_form-{{ forloop.counter0 }}-id"
                    value="{{ form.instance.id }}">
-            <!-- Кнопка удаления -->
-            <button type="button" class="delete-form-row" data-form-id="{{ forloop.counter0 }}">Delete</button>
             {% endif %}
         </div>
         {% endfor %}
     </div>
-    <button type="button" id="add-form-row">Add User</button>
-    <button type="submit">Save All Users</button>
+    <button type="button" id="add-form-row">Добавить пользователя</button>
+    <button type="submit">Сохранить всех пользователей</button>
 </form>
 
 <script type="text/javascript">
@@ -55,7 +53,7 @@
     <div class="form-row">
         {{ formset.empty_form.as_p }}
         <input type="hidden" name="form-__prefix__-id" id="id_form-__prefix__-id">
-        <button type="button" class="delete-form-row" data-form-id="__prefix__">Delete</button>
+        <button type="button" class="delete-form-row" data-form-id="__prefix__">Удалить</button>
     </div>
 </div>
 {% endblock content %}
