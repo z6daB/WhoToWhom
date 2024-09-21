@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
-from .forms import CreateEventForm, UserFormSet
+from .forms import CreateEventForm, UserFormSet, ExpenseForm
 from .models import Users, Events
 
 
@@ -48,4 +48,20 @@ def purchases(request):
 
 
 def create_purchase(request, event_id):
-    return render(request, 'splitwise/add_purchase.html')
+    event = get_object_or_404(Events, id=event_id)
+
+    if request.method == 'POST':
+        form = ExpenseForm(request.POST, event_id=event_id)
+        if form.is_valid():
+            expense = form.save(commit=False)
+            expense.event = event
+            expense.creator = form.cleaned_data['creator']
+            expense.save()
+            form.save_m2m()
+            return HttpResponse('Успешно')
+    else:
+        form = ExpenseForm(event_id=event_id)
+    context = {
+        'form': form
+    }
+    return render(request, 'splitwise/add_purchase.html', context=context)

@@ -2,4 +2,12 @@
 {% load static %}
 {% block link %}<link rel="stylesheet" href='{% static "css/add_purchase.css" %}'>{% endblock link %}
 {% block content %}
+
+<h1>Прикол</h1>
+<h1>Создать покупку</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Отображает форму как параграфы -->
+        <button type="submit">Создать</button>
+    </form>
 {% endblock content %}
