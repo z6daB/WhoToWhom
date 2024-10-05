@@ -1,0 +1,61 @@
+/* Стили для контейнера */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff3e0; /* Теплый светло-оранжевый фон */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+/* Стили для заголовка */
+h1 {
+    color: #d84315; /* Теплый терракотовый оттенок */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Стили для формы */
+.form-container {
+    background-color: #ffe0b2; /* Теплый персиковый фон */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Тень вокруг формы */
+}
+
+input, select, textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ffb74d;
+    border-radius: 8px;
+    background-color: #fff8e1;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: #ff7043; /* Теплый оранжево-красный цвет */
+    border: none;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+button[type="submit"]:hover {
+    background-color: #e64a19; /* Темно-оранжевый при наведении */
+}
+
+/* Увеличение размера чекбоксов */
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; /* Отступ справа для текста */
+    transform: scale(1.5); /* Масштабирование чекбокса */
+    accent-color: #ff7043; /* Цвет чекбокса в стиле теплых тонов */
+}
+

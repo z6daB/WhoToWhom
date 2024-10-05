@@ -1,13 +1,18 @@
 {% extends 'splitwise/base.html' %}
 {% load static %}
-{% block link %}<link rel="stylesheet" href='{% static "css/add_purchase.css" %}'>{% endblock link %}
-{% block content %}
+{% block link %}
+    <link rel="stylesheet" href='{% static "css/add_purchase.css" %}'>
+{% endblock link %}
 
-<h1>Прикол</h1>
-<h1>Создать покупку</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}  <!-- Отображает форму как параграфы -->
-        <button type="submit">Создать</button>
-    </form>
+{% block content %}
+<div class="container">
+    <h1>Создать покупку</h1>
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Создать</button>
+        </form>
+    </div>
+</div>
 {% endblock content %}

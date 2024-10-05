@@ -25,13 +25,13 @@ UserFormSet = modelformset_factory(Users, form=UserForm, extra=1, can_delete=Fal
 
 class ExpenseForm(forms.ModelForm):
     members = forms.ModelMultipleChoiceField(
-        queryset=Users.objects.none(),  # Пустой queryset по умолчанию
+        queryset=Users.objects.none(),
         widget=forms.CheckboxSelectMultiple,
         required=True
     )
 
     creator = forms.ModelChoiceField(
-        queryset=Users.objects.none(),  # Пустой queryset по умолчанию
+        queryset=Users.objects.none(),
         required=True
     )
 
@@ -46,3 +46,8 @@ class ExpenseForm(forms.ModelForm):
         if event_id:
             self.fields['members'].queryset = Users.objects.filter(event_id=event_id)
             self.fields['creator'].queryset = Users.objects.filter(event_id=event_id)
+
+            self.fields['members'].label = 'Участники'
+            self.fields['creator'].label = 'Плательщик'
+            self.fields['name'].label = 'Название'
+            self.fields['price'].label = 'Стоимость'

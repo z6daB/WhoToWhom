@@ -2,4 +2,9 @@
 {% load static %}
 {% block link %}<link rel="stylesheet" href='{% static "css/purchases.css" %}'>{% endblock link %}
 {% block content %}
+
+{% for object in objects %}
+<h1>{{ object.name }} {{ object.price }} ₽</h1>
+{% endfor %}
+
 {% endblock content %}
