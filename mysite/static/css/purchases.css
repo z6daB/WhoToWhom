@@ -1,0 +1,110 @@
+.purchases-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff3e0; /* Светлый теплый фон */
+    border-radius: 12px;
+    border: 1px solid #ffcc80; /* Теплый светло-оранжевый */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для объема */
+}
+
+h1 {
+    color: #d84315; /* Терракотовый цвет */
+    margin-bottom: 20px;
+    font-size: 27px;
+    text-align: center; /* Заголовок по центру */
+    font-weight: 600;
+}
+
+.purchases-list {
+    margin-top: 20px;
+    text-align: center; /* Центрируем элементы */
+}
+
+.purchase-item {
+    border: 1px solid #ffab91; /* Светлый теплый оранжевый */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: #ffe0b2; /* Персиковый фон */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.purchase-item:hover {
+    background-color: #ffcc80; /* Светлее при наведении */
+}
+
+.purchase-name {
+    font-size: 1.4em;
+    color: #d84315; /* Терракотовый */
+    font-weight: 500;
+}
+
+.purchase-price {
+    font-size: 1em;
+    color: #6d4c41; /* Теплый коричневый */
+}
+
+.btn {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #ff7043; /* Теплый оранжево-красный */
+}
+
+.btn-primary:hover {
+    background-color: #e64a19; /* Темнее при наведении */
+}
+
+.btn-secondary {
+    background-color: #f4511e; /* Яркий теплый оранжевый */
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+.btn-secondary:hover {
+    background-color: #d84315; /* Терракотовый при наведении */
+}
+
+/* Центрируем кнопку "Добавить покупку" */
+.add-button {
+    margin-top: 30px;
+    display: block;
+    background-color: #ff8a65; /* Коралловый */
+    padding: 15px 30px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #f4511e; /* Темнее при наведении */
+}
+
+/* Минимальные анимации для плавности */
+.purchase-item {
+    transition: transform 0.3s ease;
+}
+
+.purchase-item:hover {
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}

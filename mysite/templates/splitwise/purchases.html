@@ -1,10 +1,28 @@
 {% extends 'splitwise/base.html' %}
 {% load static %}
-{% block link %}<link rel="stylesheet" href='{% static "css/purchases.css" %}'>{% endblock link %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/purchases.css' %}">
+{% endblock link %}
+
 {% block content %}
+<div class="purchases-container">
+    <h1>Список покупок</h1>
+    {% if objects %}
+        <div class="purchases-list">
+            {% for object in objects %}
+                <div class="purchase-item">
+                    <h2 class="purchase-name">{{ object.name }}</h2>
+                    <p class="purchase-price">{{ object.price }} ₽</p>
+                </div>
+            {% endfor %}
+        </div>
 
-{% for object in objects %}
-<h1>{{ object.name }} {{ object.price }} ₽</h1>
-{% endfor %}
-
+        <!-- Кнопка добавления новой покупки -->
+        <a href="{% url 'create_purchase' event_id=event_id %}" class="btn btn-primary add-button">Добавить покупку</a>
+    {% else %}
+        <h2>Добро пожаловать! Создайте первую покупку для этого события.</h2>
+        <a href="{% url 'create_purchase' event_id=event_id %}" class="btn btn-primary">Создать покупку</a>
+    {% endif %}
+</div>
 {% endblock content %}

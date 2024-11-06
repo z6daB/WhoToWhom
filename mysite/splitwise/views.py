@@ -36,17 +36,20 @@ def create_users(request, event_id):
             for instance in instances:
                 instance.event = event  # Устанавливаем событие для каждого пользователя
                 instance.save()
-            return HttpResponse('success')
+            return redirect('purchases', event_id=event.id)
     else:
         formset = UserFormSet(queryset=Users.objects.none())  # Пустой набор форм
 
     return render(request, 'splitwise/create_users.html', {'formset': formset})
 
 
-def purchases(request):
-    event_id = Events.objects.get(user_id=request.user.id).id
+def purchases(request, event_id):
     objects = Expenses.objects.filter(event_id=event_id)
-    context = {'objects': objects}
+
+    context = {
+        'objects': objects,
+        'event_id': event_id
+    }
     return render(request, 'splitwise/purchases.html', context=context)
 
 
@@ -61,7 +64,7 @@ def create_purchase(request, event_id):
             expense.creator = form.cleaned_data['creator']
             expense.save()
             form.save_m2m()
-            return HttpResponse('Успешно')
+            return redirect('purchases', event_id=event.id)
     else:
         form = ExpenseForm(event_id=event_id)
     context = {
