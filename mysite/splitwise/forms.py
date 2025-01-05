@@ -18,6 +18,9 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = Users
         fields = ['username']
+        labels = {
+            'username': 'Имя человека'
+        }
 
 
 UserFormSet = modelformset_factory(Users, form=UserForm, extra=1, can_delete=False)

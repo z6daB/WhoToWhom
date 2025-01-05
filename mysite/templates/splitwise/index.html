@@ -5,7 +5,7 @@
 <div class="events-container">
     {% for event in events %}
         <div class="event-item">
-            <a href="{% url 'create_user' event.id %}" class="event-link">{{ event.title }}</a>
+            <a href="{% url 'purchases' event.id %}" class="event-link">{{ event.title }}</a>
         </div>
     {% endfor %}
 </div>

@@ -1,61 +1,87 @@
-/* Стили для контейнера */
+/* Общие стили для контейнера */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #fff3e0; /* Теплый светло-оранжевый фон */
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    padding: 40px;
+    background: #fff3e0; /* Теплый светло-оранжевый фон */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Углубленная тень */
+    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'); /* Текстура фона */
+    background-size: 100% 100%;
 }
 
-/* Стили для заголовка */
+/* Заголовок страницы */
 h1 {
     color: #d84315; /* Теплый терракотовый оттенок */
     text-align: center;
-    margin-bottom: 20px;
+    font-size: 2rem; /* Более крупный шрифт */
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif; /* Современный шрифт */
 }
 
-/* Стили для формы */
+/* Стиль для формы */
 .form-container {
     background-color: #ffe0b2; /* Теплый персиковый фон */
-    padding: 20px;
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Тень вокруг формы */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1); /* Углубленная тень вокруг формы */
+    transition: all 0.3s ease; /* Плавный эффект */
 }
 
+.form-container:hover {
+    transform: translateY(-5px); /* Легкое поднимание при наведении */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15); /* Глубокая тень при наведении */
+}
+
+/* Стиль для всех полей ввода */
 input, select, textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
     border: 1px solid #ffb74d;
     border-radius: 8px;
     background-color: #fff8e1;
+    font-size: 1rem;
+    color: #6d4c41; /* Теплый коричневый для текста */
+    transition: border-color 0.3s ease;
 }
 
+input:focus, select:focus, textarea:focus {
+    border-color: #ff7043; /* При фокусе на поле оранжевый цвет */
+    outline: none; /* Убираем стандартную обводку */
+}
+
+/* Стиль для кнопки отправки */
 button[type="submit"] {
     display: block;
     width: 100%;
-    background-color: #ff7043; /* Теплый оранжево-красный цвет */
+    background-color: #ff7043; /* Теплый оранжево-красный */
     border: none;
     color: #fff;
-    padding: 12px 20px;
+    padding: 15px 25px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
 }
 
 button[type="submit"]:hover {
-    background-color: #e64a19; /* Темно-оранжевый при наведении */
+    background-color: #e64a19; /* Темный оранжевый при наведении */
+    transform: translateY(-3px); /* Легкое поднимание */
 }
 
-/* Увеличение размера чекбоксов */
+/* Увеличенные чекбоксы */
 input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px; /* Отступ справа для текста */
-    transform: scale(1.5); /* Масштабирование чекбокса */
-    accent-color: #ff7043; /* Цвет чекбокса в стиле теплых тонов */
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+    transform: scale(1.5);
+    accent-color: #ff7043; /* Цвет чекбокса */
+    transition: transform 0.2s ease;
 }
 
+input[type="checkbox"]:hover {
+    transform: scale(1.6); /* Увеличение при наведении */
+}

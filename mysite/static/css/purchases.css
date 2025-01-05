@@ -1,110 +1,115 @@
+/* Общие стили */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(to right, #ffecd2, #fcb69f); /* Нежный градиент */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .purchases-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 30px;
-    background-color: #fff3e0; /* Светлый теплый фон */
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
     border-radius: 12px;
-    border: 1px solid #ffcc80; /* Теплый светло-оранжевый */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для объема */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Углубленная тень */
 }
 
 h1 {
-    color: #d84315; /* Терракотовый цвет */
-    margin-bottom: 20px;
-    font-size: 27px;
-    text-align: center; /* Заголовок по центру */
+    color: #e65100; /* Глубокий оранжевый */
+    font-size: 28px;
+    text-align: center;
     font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .purchases-list {
     margin-top: 20px;
-    text-align: center; /* Центрируем элементы */
 }
 
 .purchase-item {
-    border: 1px solid #ffab91; /* Светлый теплый оранжевый */
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    background-color: #ffe0b2; /* Персиковый фон */
+    border: 1px solid #ffab91; /* Светлый оранжевый */
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    background: linear-gradient(to right, #ffe0b2, #ffc1a6); /* Градиент для тепла */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background-color 0.3s ease;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Легкая объемная тень */
 }
 
 .purchase-item:hover {
-    background-color: #ffcc80; /* Светлее при наведении */
+    background: linear-gradient(to right, #ffcc80, #ffab91); /* Градиент при наведении */
+    transform: scale(1.05); /* Увеличение при наведении */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Более глубокая тень */
 }
 
 .purchase-name {
-    font-size: 1.4em;
-    color: #d84315; /* Терракотовый */
-    font-weight: 500;
+    font-size: 1.5em; /* Увеличенный размер шрифта */
+    color: #bf360c; /* Насыщенный терракотовый */
+    font-weight: 600;
 }
 
 .purchase-price {
-    font-size: 1em;
-    color: #6d4c41; /* Теплый коричневый */
+    font-size: 1.2em; /* Увеличенный размер цены */
+    color: #5d4037; /* Теплый коричневый */
 }
 
 .btn {
     text-decoration: none;
     color: #fff;
-    padding: 10px 15px;
+    padding: 12px 20px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease; /* Плавный переход */
 }
 
 .btn-primary {
     background-color: #ff7043; /* Теплый оранжево-красный */
+    text-align: center;
 }
 
 .btn-primary:hover {
-    background-color: #e64a19; /* Темнее при наведении */
+    background-color: #e64a19; /* Темный оранжево-красный */
 }
 
-.btn-secondary {
-    background-color: #f4511e; /* Яркий теплый оранжевый */
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 8px;
-}
-
-.btn-secondary:hover {
-    background-color: #d84315; /* Терракотовый при наведении */
-}
-
-/* Центрируем кнопку "Добавить покупку" */
 .add-button {
-    margin-top: 30px;
     display: block;
-    background-color: #ff8a65; /* Коралловый */
-    padding: 15px 30px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 18px;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 30px auto 0;
+    width: 200px; /* Фиксированная ширина */
     text-align: center;
-    transition: background-color 0.3s ease;
 }
 
 .add-button:hover {
-    background-color: #f4511e; /* Темнее при наведении */
+    transform: scale(1.1); /* Увеличение при наведении */
 }
 
-/* Минимальные анимации для плавности */
-.purchase-item {
-    transition: transform 0.3s ease;
+/* Анимации */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.purchase-item:hover {
-    transform: scale(1.05); /* Легкое увеличение при наведении */
+.purchases-container {
+    animation: fadeIn 1s ease-out; /* Анимация при загрузке */
+}
+
+/* Эффект клика */
+.purchase-item.clicked {
+    background: #ffab91;
+    transform: scale(0.95); /* Легкое уменьшение при клике */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Больше тени при клике */
+    transition: all 0.2s ease;
 }

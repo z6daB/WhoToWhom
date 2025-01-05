@@ -1,3 +1,4 @@
+/* Общие стили */
 body {
     font-family: Arial, sans-serif;
     background-color: #f7e8a4; /* Светло-жёлтый, напоминающий солнечный свет */
@@ -8,15 +9,15 @@ body {
     height: 100vh;
 }
 
-.container {
-    background: #fff; /* Белый, символизирующий яркие летние дни */
+.container, .login-container {
+    background: #fff; /* Белый, символизирующий яркий летний день */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 40px;
+    text-align: center;
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
-    text-align: center;
 }
 
 h1 {
@@ -25,7 +26,7 @@ h1 {
 }
 
 /* Стили формы */
-.registration-form {
+form {
     display: flex;
     flex-direction: column;
 }
@@ -49,7 +50,8 @@ h1 {
     box-sizing: border-box;
 }
 
-.submit-btn {
+/* Кнопки */
+button {
     width: 100%;
     padding: 10px;
     background-color: #ffa726; /* Оранжевый цвет, напоминающий спелые фрукты */
@@ -61,19 +63,20 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
+button:hover {
     background-color: #fb8c00; /* Более насыщенный оранжевый при наведении */
 }
 
-.login-link {
-    margin-top: 10px;
-}
-
-.login-link a {
+/* Ссылки */
+a {
     color: #ffa726; /* Соответствующий цвет ссылок */
     text-decoration: none;
 }
 
-.login-link a:hover {
+a:hover {
     text-decoration: underline;
+}
+
+.signup-link, .login-link {
+    margin-top: 10px;
 }
