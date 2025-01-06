@@ -71,3 +71,11 @@ def create_purchase(request, event_id):
         'form': form
     }
     return render(request, 'splitwise/add_purchase.html', context=context)
+
+
+def analysis(request, event_id, expenses_id):
+    
+    context = {
+        'data': None
+    }
+    return render(request, 'splitwise/get_analysis.html', context=context)

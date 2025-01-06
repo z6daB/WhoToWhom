@@ -41,6 +41,8 @@ h1 {
     align-items: center;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Легкая объемная тень */
+    width: 100%; /* Увеличение длины на всю ширину контейнера */
+    box-sizing: border-box; /* Учет padding в размере */
 }
 
 .purchase-item:hover {
@@ -53,11 +55,15 @@ h1 {
     font-size: 1.5em; /* Увеличенный размер шрифта */
     color: #bf360c; /* Насыщенный терракотовый */
     font-weight: 600;
+    word-wrap: break-word; /* Перенос длинного текста */
+    max-width: 70%; /* Ограничение ширины для названия */
+    line-height: 1.4; /* Увеличение межстрочного расстояния */
 }
 
 .purchase-price {
     font-size: 1.2em; /* Увеличенный размер цены */
     color: #5d4037; /* Теплый коричневый */
+    flex-shrink: 0; /* Цена не будет сжиматься */
 }
 
 .btn {
@@ -112,4 +118,22 @@ h1 {
     transform: scale(0.95); /* Легкое уменьшение при клике */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Больше тени при клике */
     transition: all 0.2s ease;
+}
+.return-button {
+    display: block;
+    margin: 20px auto 0;
+    width: 200px; /* Фиксированная ширина */
+    text-align: center;
+    background-color: #29b6f6; /* Голубой цвет */
+    color: #fff; /* Белый текст */
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.return-button:hover {
+    background-color: #0288d1; /* Темный голубой */
+    transform: scale(1.1); /* Увеличение при наведении */
 }

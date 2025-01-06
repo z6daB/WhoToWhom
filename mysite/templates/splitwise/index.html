@@ -1,26 +1,35 @@
 {% extends 'splitwise/base.html' %}
 {% load static %}
-{% block link %}<link rel="stylesheet" href='{% static "css/styles.css" %}'>{% endblock link %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock link %}
 {% block content %}
-<div class="events-container">
-    {% for event in events %}
-        <div class="event-item">
-            <a href="{% url 'purchases' event.id %}" class="event-link">{{ event.title }}</a>
+<body>
+    <!-- Основной контент -->
+    <div id="main-content">
+        {% if events %}
+        <div class="events-container">
+            {% for event in events %}
+                <div class="event-item">
+                    <a href="{% url 'purchases' event.id %}" class="event-link">{{ event.title }}</a>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
-</div>
+        {% endif %}
 
-<div class="form-container">
-    <form method="post">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-        <div class="form-group">
-            <label for="{{ form.title.id_for_label }}">Создать событие:</label>
-            {{ form.title }}
-            {{ form.title.error }}
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="form-group">
+                    <label for="{{ form.title.id_for_label }}">Создать событие:</label>
+                    {{ form.title }}
+                    {{ form.title.error }}
+                </div>
+                <button type="submit" class="submit-btn">Создать</button>
+            </form>
         </div>
-        <button type="submit" class="submit-btn">Создать</button>
-    </form>
-</div>
-
+    </div>
+</body>
 {% endblock content %}

@@ -13,10 +13,14 @@
     {% if objects %}
         <div class="purchases-list">
             {% for object in objects %}
-                <div class="purchase-item">
-                    <h2 class="purchase-name">{{ object.name }}</h2>
-                    <p class="purchase-price">{{ object.price }} ₽</p>
-                </div>
+            <a href="{% url 'analysis' event_id=event_id expenses_id=object.id %}" style="text-decoration: none;">
+
+                    <div class="purchase-item">
+                        <h2 class="purchase-name">{{ object.name }}</h2>
+                        <p class="purchase-price">{{ object.price }} ₽</p>
+                    </div>
+                </a>
+                
             {% endfor %}
         </div>
 
@@ -26,5 +30,8 @@
         <h2>Добро пожаловать! Создайте первую покупку для этого события.</h2>
         <a href="{% url 'create_purchase' event_id=event_id %}" class="btn btn-primary">Создать покупку</a>
     {% endif %}
+
+    <!-- Кнопка возврата в главное меню -->
+    <a href="{% url 'index' %}" class="btn btn-secondary return-button">Главное меню</a>
 </div>
 {% endblock content %}

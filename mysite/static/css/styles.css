@@ -1,46 +1,74 @@
 /* Общие стили */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #fff3e0; /* Соответствует общему теплому фону */
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(to right, #ffecd2, #fcb69f); /* Нежный градиент */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 h1 {
-    color: #d84315; /* Терракотовый оттенок, как в заголовке ранее */
+    color: #e65100; /* Глубокий оранжевый */
+    font-size: 28px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
 /* Стили для списка событий */
 .events-container {
+    width: 90%; /* Увеличена ширина */
+    min-width: 800px; /* Минимальная ширина */
     margin-bottom: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Углубленная тень */
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .event-item {
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1%;
 }
 
 .event-link {
-    color: #ff7043; /* Теплый оранжево-красный цвет для ссылок */
+    font-size: 20px; /* Увеличен размер текста */
+    padding: 15px 30px; /* Увеличены отступы */
+    color: #ff7043; /* Теплый оранжевый */
     text-decoration: none;
-    font-size: 18px;
-    padding: 8px 12px;
-    border: 1px solid #ffcc80; /* Теплый светло-оранжевый цвет для границы */
-    border-radius: 8px; /* Более скругленные углы */
-    display: inline-block;
-    transition: background-color 0.3s ease;
+    border: 2px solid #ffcc80; /* Светлая оранжевая рамка */
+    border-radius: 12px;
+    background: rgba(255, 230, 204, 0.8); /* Полупрозрачный фон */
+    transition: all 0.3s ease;
+    text-align: center; /* Центрирование текста */
+    font-weight: bold; /* Сделать текст жирным */
 }
 
 .event-link:hover {
-    background-color: #ffe082; /* Более насыщенный теплый цвет при наведении */
+    background: #ffe082; /* Насыщенный фон при наведении */
+    color: #d84315; /* Более темный оттенок текста */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Стили для формы */
 .form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ffab91; /* Теплый светлый оранжевый */
-    border-radius: 12px; /* Более скругленные углы */
-    background-color: #ffe0b2; /* Теплый персиковый фон */
+    width: 90%; /* Увеличена ширина */
+    min-width: 800px; /* Минимальная ширина */
+    margin: 20px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Углубленная тень */
 }
 
 .form-group {
@@ -49,33 +77,66 @@ h1 {
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
-    color: #d84315; /* Терракотовый оттенок для текста меток */
+    color: #d84315;
 }
 
 .form-group input {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ffb74d; /* Теплый оранжевый для границы */
-    border-radius: 8px; /* Более скругленные углы */
-    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ffb74d; /* Теплая оранжевая рамка */
+    border-radius: 8px;
     background-color: #fff3e0; /* Светлый теплый фон */
-}
-
-/* Стили для кнопок */
-button[type="submit"] {
-    background-color: #ff7043; /* Теплый оранжево-красный цвет */
-    border: none;
-    color: #fff;
-    padding: 12px 20px; /* Увеличен размер кнопки */
-    border-radius: 8px; /* Более скругленные углы */
-    cursor: pointer;
     font-size: 16px;
-    width: 100%;
-    transition: background-color 0.3s ease;
+    box-sizing: border-box;
 }
 
-button[type="submit"]:hover {
-    background-color: #e64a19; /* Темно-оранжевый при наведении */
+
+/* Стили для кнопки */
+.submit-btn {
+    width: 100%;
+    padding: 15px 25px; /* Увеличены отступы */
+    border: none;
+    border-radius: 8px;
+    background-color: #ff7043; /* Теплый оранжевый */
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e64a19; /* Темный оранжевый */
+    transform: scale(1.02); /* Увеличение при наведении */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.events-container {
+    animation: fadeIn 1s ease-out; /* Анимация при загрузке контейнера */
+}
+
+.event-item {
+    opacity: 0; /* Изначально элементы скрыты */
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Автоматическая задержка для каждого элемента */
+.event-item:nth-child(n) {
+    animation-delay: calc(var(--index, 0) * 0.1s);
+}
+
+.form-container {
+    animation: fadeIn 1s ease-out;
 }
