@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from .forms import CreateEventForm, UserFormSet, ExpenseForm
-from .models import Users, Events, Expenses
+from .models import Users, Events, Expenses, Debts
 
 
 def index(request):
@@ -64,6 +64,9 @@ def create_purchase(request, event_id):
             expense.creator = form.cleaned_data['creator']
             expense.save()
             form.save_m2m()
+
+            Debts.create_debts_for_members(expense, event)
+
             return redirect('purchases', event_id=event.id)
     else:
         form = ExpenseForm(event_id=event_id)
@@ -74,7 +77,7 @@ def create_purchase(request, event_id):
 
 
 def analysis(request, event_id, expenses_id):
-    
+
     context = {
         'data': None
     }

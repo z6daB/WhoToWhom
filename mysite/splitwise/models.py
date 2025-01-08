@@ -25,3 +25,27 @@ class Expenses(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     members = models.ManyToManyField(Users, related_name='participated_expenses')
 
+class Debts(models.Model):
+    debtor_id = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='debts')
+    payer_id = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='debts_creator', default=1)
+    debt = models.DecimalField(max_digits=10, decimal_places=2)
+    purchase_id = models.ForeignKey(Expenses, on_delete=models.CASCADE, related_name='debts')
+    event_id = models.ForeignKey(Events, on_delete=models.CASCADE, related_name='debts')
+
+    @classmethod
+    def create_debts_for_members(cls, expense, event):
+        total_price = expense.price
+        members = expense.members.all()
+        num_members = len(members)
+        if num_members > 1:
+            individual_debt = total_price / num_members
+
+            for member in members:
+                if member != expense.creator:  # исключаем создателя расходов, он не должен быть должником
+                    cls.objects.create(
+                        debtor_id=member,
+                        payer_id=expense.creator,
+                        debt=individual_debt,
+                        purchase_id=expense,
+                        event_id=event
+                    )
