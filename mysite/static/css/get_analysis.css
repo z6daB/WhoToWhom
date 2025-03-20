@@ -1,0 +1,100 @@
+/* Общие стили */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(to right, #ffefd5, #fcb69f); /* Нежный и спокойный градиент */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.debt-wrapper {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95); /* Полупрозрачный белый фон */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Углубленная тень */
+}
+
+h1 {
+    color: #ff7043; /* Мягкий оранжевый */
+    font-size: 32px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+/* Стили для списка долгов */
+.debt-list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr; /* Два столбца */
+    margin-top: 20px;
+}
+
+/* Карточка долга */
+.debt-card {
+    background: linear-gradient(to right, #ffe0b2, #ffc1a6); /* Тёплый градиент */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.debt-card:hover {
+    transform: translateY(-10px); /* Поднимание карточки при наведении */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Заголовок карточки */
+.debt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Имя должника */
+.debtor-name {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #d84b16; /* Умеренный оранжевый */
+}
+
+/* Сумма долга */
+.debt-amount {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #2ecc71; /* Зеленый */
+}
+
+/* Подвал карточки */
+.debt-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Имя плательщика */
+.payer-name {
+    font-weight: 600;
+    color: #3498db; /* Спокойный синий */
+    font-size: 1.1em;
+}
+
+/* Анимация при загрузке */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.debt-wrapper {
+    animation: fadeIn 1s ease-out; /* Анимация при загрузке */
+}
