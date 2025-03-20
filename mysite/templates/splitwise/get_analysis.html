@@ -2,6 +2,7 @@
 
 {% load static %}
 {% block link %}
+    <script src="{% static 'js/analysis.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/get_analysis.css' %}">
 {% endblock link %}
 
@@ -11,16 +12,28 @@
 
     <div class="debt-list">
         {% for item in data %}
-            <div class="debt-card">
+            <div class="debt-card" data-debt-id="{{ item.id }}">
                 <div class="debt-header">
-                    <span class="debtor-name">{{ item.debtor.username }}</span>
+                    <span class="debtor-name">{{ item.debtor_id.username }}</span>
                     <span class="debt-amount">{{ item.debt }}</span>
                 </div>
                 <div class="debt-footer">
-                    <span class="payer-name">плательщику {{ item.payer.username }}</span>
+                    <span class="payer-name">плательщику {{ item.payer_id.username }}</span>
                 </div>
             </div>
         {% endfor %}
+    </div>
+</div>
+
+<div id="debtModal" class="modal">
+    <div class="modal-content">
+        <h4>Изменить сумму долга</h4>
+        <form id="debtUpdateForm">
+            {% csrf_token %}
+            <input type="number" name="amount" id="debtAmount" placeholder="Введите сумму долга" required />
+            <button type="submit">Обновить</button>
+            <button type="button" id="closeModal">Закрыть</button>
+        </form>
     </div>
 </div>
 {% endblock content %}

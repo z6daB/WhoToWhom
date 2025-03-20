@@ -1,6 +1,10 @@
-from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
+import json
+from django.http import JsonResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CreateEventForm, UserFormSet, ExpenseForm
 from .models import Users, Events, Expenses, Debts
+from django.views.decorators.csrf import csrf_exempt
+from decimal import Decimal
 
 
 def index(request):
@@ -75,6 +79,35 @@ def create_purchase(request, event_id):
     }
     return render(request, 'splitwise/add_purchase.html', context=context)
 
+
+@csrf_exempt
+def update_debt(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            debt_id = data.get('debt_id')
+            new_amount = float(data.get('amount'))
+
+            # Проверка на отрицательное значение
+            if new_amount < 0:
+                return JsonResponse({'status': 'error', 'message': 'Сумма долга не может быть отрицательной'})
+
+            debt = Debts.objects.get(id=debt_id)
+
+            if new_amount == 0:
+                debt.delete()
+                return JsonResponse({'status': 'deleted', 'message': 'Долг удалён'})
+
+            debt.debt = new_amount
+            debt.save()
+            return JsonResponse({'status': 'success', 'new_amount': debt.debt})
+
+        except Debts.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Долг не найден'})
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': str(e)})
+
+    return JsonResponse({'status': 'error', 'message': 'Неверный запрос'})
 
 def analysis(request, event_id, expenses_id):
     data = Debts.objects.filter(event_id=event_id, purchase_id=expenses_id)

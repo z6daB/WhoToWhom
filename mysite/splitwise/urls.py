@@ -18,4 +18,5 @@ urlpatterns = [
         views.analysis,
         name="analysis",
     ),
+    path('update_debt/', views.update_debt, name='update_debt'),
 ]

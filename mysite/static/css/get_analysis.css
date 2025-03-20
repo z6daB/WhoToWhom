@@ -1,7 +1,6 @@
-/* Общие стили */
 body {
     font-family: 'Poppins', Arial, sans-serif;
-    background: linear-gradient(to right, #ffefd5, #fcb69f); /* Нежный и спокойный градиент */
+    background: linear-gradient(to right, #ffefd5, #fcb69f);
     margin: 0;
     display: flex;
     justify-content: center;
@@ -13,42 +12,41 @@ body {
     width: 100%;
     max-width: 800px;
     padding: 40px;
-    background: rgba(255, 255, 255, 0.95); /* Полупрозрачный белый фон */
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Углубленная тень */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
 }
 
 h1 {
-    color: #ff7043; /* Мягкий оранжевый */
+    color: #ff7043;
     font-size: 32px;
     text-align: center;
     font-weight: 600;
     margin-bottom: 40px;
 }
 
-/* Стили для списка долгов */
 .debt-list {
     display: grid;
     gap: 20px;
-    grid-template-columns: 1fr 1fr; /* Два столбца */
+    grid-template-columns: 1fr 1fr;
     margin-top: 20px;
 }
 
-/* Карточка долга */
 .debt-card {
-    background: linear-gradient(to right, #ffe0b2, #ffc1a6); /* Тёплый градиент */
+    background: linear-gradient(to right, #ffe0b2, #ffc1a6);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .debt-card:hover {
-    transform: translateY(-10px); /* Поднимание карточки при наведении */
+    transform: translateY(-10px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Заголовок карточки */
 .debt-header {
     display: flex;
     justify-content: space-between;
@@ -56,34 +54,44 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* Имя должника */
 .debtor-name {
     font-size: 1.3em;
     font-weight: 600;
-    color: #d84b16; /* Умеренный оранжевый */
+    color: #d29178;
 }
 
-/* Сумма долга */
+.debt-card:hover .debtor-name {
+    color: #d84b16;
+    transition: color 0.5s ease;
+}
+
+.debt-card:hover .payer-name {
+    color: #955598;
+    transition: color 0.5s ease;
+}
+
+.debt-card:hover .debt-amount {
+    color: #5b6b64;
+    transition: color 0.5s ease;
+}
+
 .debt-amount {
     font-size: 1.5em;
     font-weight: 700;
-    color: #2ecc71; /* Зеленый */
+    color: #717d79;
 }
 
-/* Подвал карточки */
 .debt-footer {
     display: flex;
     justify-content: flex-end;
 }
 
-/* Имя плательщика */
 .payer-name {
     font-weight: 600;
-    color: #3498db; /* Спокойный синий */
+    color: #b49eb9;
     font-size: 1.1em;
 }
 
-/* Анимация при загрузке */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -95,6 +103,81 @@ h1 {
     }
 }
 
-.debt-wrapper {
-    animation: fadeIn 1s ease-out; /* Анимация при загрузке */
+/* Стили для модального окна */
+.modal {
+    display: none; /* Исправлено: теперь модалка скрыта по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden; /* Модальное окно невидимо */
+    opacity: 0; /* Прозрачность 0 */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.show {
+    visibility: visible; /* Показываем окно */
+    opacity: 1; /* Прозрачность 1 */
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#debtUpdateForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+#debtUpdateForm input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+#debtUpdateForm button {
+    width: 85%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#debtUpdateForm button:hover {
+    background-color: #0056b3;
+}
+
+#closeModal {
+    background-color: #dc3545;
+}
+
+#closeModal:hover {
+    background-color: #a71d2a;
 }
