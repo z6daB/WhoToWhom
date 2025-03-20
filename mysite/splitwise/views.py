@@ -77,8 +77,6 @@ def create_purchase(request, event_id):
 
 
 def analysis(request, event_id, expenses_id):
-
-    context = {
-        'data': None
-    }
-    return render(request, 'splitwise/get_analysis.html', context=context)
+    data = Debts.objects.filter(event_id=event_id, purchase_id=expenses_id)
+    context = {"data": data}
+    return render(request, "splitwise/get_analysis.html", context=context)

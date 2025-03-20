@@ -74,15 +74,20 @@ h1 {
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease; /* Плавный переход */
+    
 }
 
 .btn-primary {
-    background-color: #ff7043; /* Теплый оранжево-красный */
+    display: block;
+    width: 300px;
+    background-color: #ff7043;
     text-align: center;
+    margin: 20px auto 0;
 }
 
 .btn-primary:hover {
     background-color: #e64a19; /* Темный оранжево-красный */
+    transform: scale(1.1);
 }
 
 .add-button {

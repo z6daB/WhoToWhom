@@ -6,7 +6,6 @@
     background: #fff3e0; /* Теплый светло-оранжевый фон */
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Углубленная тень */
-    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'); /* Текстура фона */
     background-size: 100% 100%;
 }
 
